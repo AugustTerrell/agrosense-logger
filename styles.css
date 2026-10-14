@@ -282,12 +282,12 @@ html {
     align-items: flex-start;
 }
 
-.card-title {
+.bay-id-text {
     font-weight: 700;
     font-size: 1.05rem;
 }
 
-.staff-name {
+.staff-name-text {
     font-size: 0.75rem;
     color: var(--text-muted);
 }

@@ -24,7 +24,7 @@
             <!-- Input panel and form -->
             <section class="panel input-panel">
                 <h2 class="panel-title">Record Bay Measurements</h2>
-                <div class="alert alert-danger hidden" role="alert"></div>
+                <div id="form-error-banner" class="alert alert-danger hidden" role="alert"></div>
 
                 <form action="#" id="input-form" class="form-container" novalidate>
                     <div class="form-row">
@@ -134,7 +134,7 @@
                     <p>No log history recorded.</p>
                 </div>
 
-                <ul id="card-list" class="cards-grid" aria-live="polite">
+                <ul id="cards-list" class="cards-grid" aria-live="polite">
                     <!-- Log cards will be dynamically inserted here using JavaScript -->
                 </ul>
             </section>
