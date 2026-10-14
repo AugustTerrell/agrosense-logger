@@ -10,6 +10,136 @@
     </head>
 
     <body>
+        <header class="site-header">
+            <div class="branding">
+                <span class="icon">&#x1F96C;</span>
+                <h1>Greenhouse Logger <span class="branding-subtitle">Monitor Bay Status</span></h1>
+            </div>
 
+            <div class="queue-status">Recent Logs: <span id="queue-count" class="count-badge">0</span></div>
+        </header>
+
+        <main class="site-main">
+            <section class="panel input-panel">
+                <h2 class="panel-title">Record Bay Measurements</h2>
+                <div class="alert alert-danger hidden" role="alert"></div>
+
+                <form action="#" id="input-form" novalidate>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="staff-name" class="form-label">Name of Staff Member<span class="required-star">*</span></label>
+                            <input
+                                type="text"
+                                name="staffName"
+                                id="staff-name"
+                                class="form-input"
+                                placeholder="Firstname Lastname"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bay-id" class="form-label">Bay ID Number<span class="required-star">*</span></label>
+                            <input
+                                type="text"
+                                name="bayID"
+                                id="bay-id"
+                                class="form-input"
+                                placeholder="A-123"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="ph" class="form-label">pH<span class="required-star">*</span></label>
+                            <input
+                                type="number"
+                                name="ph"
+                                id="ph"
+                                class="form-input"
+                                min="0.0"
+                                max="14.0"
+                                placeholder="6.0"
+                                required>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="conductivity" class="form-label">
+                                Electrical Conductivity 
+                                <span class="input-unit">(mS/cm)</span>
+                                <span class="required-star">*</span>
+                            </label>
+                            <input
+                                type="number"
+                                name="conductivity"
+                                id="conductivity"
+                                class="form-input"
+                                min="0.0"
+                                max="10.0"
+                                placeholder="1.5"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="air-temp" class="form-label">
+                                Air Temperature
+                                <span class="input-unit">(&#x2109;)</span>
+                                <span class="required-star">*</span>
+                            </label>
+                            <input
+                                type="number"
+                                name="airTemp"
+                                id="air-temp"
+                                class="form-input"
+                                min="0"
+                                max="110"
+                                placeholder="68"
+                                required>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="humidity" class="form-label">
+                                Relative Humidity
+                                <span class="input-unit">(%)</span>
+                                <span class="required-star">*</span>
+                            </label>
+                            <input
+                                type="number"
+                                name="humidity"
+                                id="humidity"
+                                class="form-input"
+                                min="10"
+                                max="100"
+                                placeholder="60"
+                                required>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="btn btn-primary btn-block">Submit Status Log</button>
+                </form>
+            </section>
+
+            <section class="panel output-panel">
+                <header class="output-header">
+                    <h2 class="panel-title">Log History</h2>
+                    <button id="purge-queue" class="btn btn-outline-danger btn-small">Purge Queue</button>
+                </header>
+
+                <div id="empty-state" class="empty-state">
+                    <span class="empty-icon">&#x1FAB4;</span>
+                    <p>No log history recorded.</p>
+                </div>
+
+                <ul id="card-list" class="card-grid" aria-live="polite">
+                    <!-- Log cards will be dynamically inserted here using JavaScript -->
+                </ul>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p class="footer-copy">&copy; Fall 2026 CSI 3150 Project 2. By August Terrell</p>
+        </footer>
     </body>
 </html>
