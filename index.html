@@ -29,7 +29,7 @@
                 <form action="#" id="input-form" class="form-container" novalidate>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="staff-name" class="form-label">Name of Staff Member<span class="required-star">*</span></label>
+                            <label for="staff-name" class="form-label">Staff Member Name<span class="required-star">*</span></label>
                             <input
                                 type="text"
                                 name="staffName"
@@ -93,9 +93,9 @@
                                 name="airTemp"
                                 id="air-temp"
                                 class="form-input"
-                                min="0"
-                                max="110"
-                                placeholder="68"
+                                min="0.0"
+                                max="110.0"
+                                placeholder="68.0"
                                 required>
                         </div>
                         
@@ -125,7 +125,7 @@
             <section class="panel output-panel">
                 <header class="output-header">
                     <h2 class="panel-title">Log History</h2>
-                    <button id="purge-queue" class="btn btn-outline-danger btn-small">Purge Queue</button>
+                    <button id="clear-history" class="btn btn-outline-danger btn-small">Clear Log History</button>
                 </header>
 
                 <!-- Empty state -->

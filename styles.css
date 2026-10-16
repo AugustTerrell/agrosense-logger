@@ -268,11 +268,11 @@ html {
     border-left-color: var(--danger);
 }
 
-.log-card.status-elevated {
+.log-card.status-warning {
     border-left-color: var(--warning);
 }
 
-.log-card.status-normal {
+.log-card.status-optimal {
     border-left-color: var(--safe);
 }
 
