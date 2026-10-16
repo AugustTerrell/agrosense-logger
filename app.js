@@ -62,28 +62,28 @@
     function validateInput(dataObject) {
         const errors = [];
 
-        if (!dataObject.bayID.trim()) {
-            errors.push('Bay ID Number is a required field');
+        if (!dataObject.staffName.trim()) {
+            errors.push('Staff Member Name is a required field.');
         }
 
-        if (!dataObject.staffName.trim()) {
-            errors.push('Staff Member Name is a required field');
+        if (!dataObject.bayID.trim()) {
+            errors.push('Bay ID Number is a required field.');
         }
 
         if (isNaN(dataObject.ph) || dataObject.ph < 0.0 || dataObject.ph > 14.0) {
-            errors.push('Soil pH must be a number between 0.0 and 14.0');
+            errors.push('Soil pH must be a number between 0.0 and 14.0.');
         }
 
         if (isNaN(dataObject.conductivity) || dataObject.conductivity < 0.0 || dataObject.conductivity > 10.0) {
-            errors.push('Electrical Conductivity must be a number between 0.0 and 10.0');
+            errors.push('Electrical Conductivity must be a number between 0.0 and 10.0.');
         }
 
         if (isNaN(dataObject.airTemp) || dataObject.airTemp < 0.0 || dataObject.airTemp > 110.0) {
-            errors.push('Air Temperature must be a number between 0.0 and 110.0');
+            errors.push('Air Temperature must be a number between 0.0 and 110.0.');
         }
 
         if (isNaN(dataObject.humidity) || dataObject.humidity < 10 || dataObject.humidity > 100) {
-            errors.push('Soil pH must be a number between 10 and 100');
+            errors.push('Soil pH must be a number between 10 and 100.');
         }
 
         return errors;
