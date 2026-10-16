@@ -158,6 +158,7 @@ html {
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
     padding: 1.5rem;
+    overflow: scroll;
 }
 
 .panel-title {
@@ -231,6 +232,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .empty-state {
@@ -256,10 +258,9 @@ html {
 .log-card {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
     background-color: var(--bg-app);
     border: 2px solid var(--border-color);
-    border-left: 5px solid var(--border-color);
+    border-left: 8px solid var(--border-color);
     border-radius: 6px;
     padding: 1rem;
 }
@@ -279,6 +280,13 @@ html {
 .card-header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.card-header-text {
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
 }
 
@@ -290,13 +298,14 @@ html {
 .staff-name-text {
     font-size: 0.75rem;
     color: var(--text-muted);
+    text-align: left;
 }
 
 .risk-badge {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    padding: 0.15rem 0.5rem;
+    padding: 0.25rem 0.65rem;
     border-radius: 9999px;
 }
 
@@ -318,14 +327,22 @@ html {
 .bay-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+    gap: 1rem 0.5rem;
     background-color: var(--bg-panel);
     font-size: 0.85rem;
     padding: 0.6rem;
     border-radius: 4px;
+    margin-bottom: 1rem;
 }
 
-.stat-item span {
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1rem;
+}
+
+.stat-title {
     display: block;
     color: var(--text-muted);
     font-size: 0.75rem;

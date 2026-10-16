@@ -137,13 +137,15 @@
     cardsList.addEventListener('click', (event) => {
         const target = event.target;
         if (target.classList.contains('btn-discharge')) {
-            const recordID = target.dataset.id;
-            records = records.filter(function (record) {
-                return record.id !== recordID;
-            });
+            if (confirm("Are you sure you want to delete this record?")) {
+                const recordID = target.dataset.id;
+                records = records.filter(function (record) {
+                    return record.id !== recordID;
+                });
 
-            saveRecords();
-            render();
+                saveRecords();
+                render();
+            }
         }
     });
 
@@ -167,34 +169,36 @@
 
             li.innerHTML = `<div>
                     <div class="card-header">
-                        <div class="bay-id-text">${escapeHTML(rec.bayID)}</div>
-                        <div class="staff-name-text">Logged by: ${escapeHTML(rec.staffName)}</div>
-                        <span class="risk-badge ${rec.status.label}">${rec.status.level}</span>
+                        <div class="card-header-text">
+                            <div class="bay-id-text">${escapeHTML(rec.bayID)}</div>
+                            <div class="staff-name-text">${escapeHTML(rec.staffName)}</div>
+                        </div>
+                        <span class="risk-badge ${rec.status.level}">${rec.status.label}</span>
                     </div>
 
                 <div class="bay-stats">
                     <div class="stat-item">
-                        <span>Soil pH</span>
-                         ${rec.ph}
+                        <span class="stat-title">Soil pH</span>
+                        <div class="stat-num">${rec.ph}</div>
                     </div>
 
                     <div class="stat-item">
-                        <span>Electrical Conductivity (mS/cm)</span>
-                        ${rec.conductivity}
+                        <span class="stat-title">Electrical Conductivity</span>
+                        <div class="stat-num">${rec.conductivity} <span>mS/cm</span></div>
                     </div>
 
                     <div class="stat-item">
-                        <span>Air Temperature (&deg;F)</span>
-                        ${rec.airTemp}
+                        <span class="stat-title">Air Temperature</span>
+                        <div class="stat-num">${rec.airTemp}<span>&deg;F</span></div>
                     </div>
 
                     <div class="stat-item">
-                        <span>Relative Humidity (%)</span>
-                        ${rec.humidity}
+                        <span class="stat-title">Relative Humidity</span>
+                        <div class="stat-num">${rec.humidity}<span>%</span></div>
                     </div>
                 </div>
 
-                <button data-id="${rec.id}" class="btn btn-outline-danger btn-sm btn-discharge">Delete Record</button>
+                <button data-id="${rec.id}" class="btn btn-outline-danger btn-sm btn-block btn-discharge">Delete Record</button>
             </div>`;
 
             fragment.appendChild(li);
