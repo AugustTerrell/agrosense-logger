@@ -1,5 +1,7 @@
 (function () {
     "use strict";
+
+    
     
     const STORAGE_KEY = "greenhouse_status_records_v1";
 
@@ -9,7 +11,7 @@
     const errorBanner = document.getElementById("form-error-banner");
     const btnClearHistory = document.getElementById("clear-history");
     const emptyState = document.getElementById("empty-state");
-    const cardsList = document.getElementById("cardsList");
+    const cardsList = document.getElementById("cards-list");
 
     // Form input fields
     const inputStaffName = document.getElementById("staff-name");
@@ -116,9 +118,11 @@
 
         inputForm.reset();
         inputStaffName.focus();
+
+        render();
     });
 
-    // Event listener for the Clear Log History button
+    // Event handler for the Clear Log History button
     btnClearHistory.addEventListener('click', (event) => {
         if (records.length === 0) {
             return;
@@ -129,8 +133,8 @@
         }
     });
 
-    // Event listener for the individual Delete Record buttons
-    recordsList.addEventListener('click', (event) => {
+    // Event handler for the individual Delete Record buttons
+    cardsList.addEventListener('click', (event) => {
         const target = event.target;
         if (target.classList.contains('btn-discharge')) {
             const recordID = target.dataset.id;
@@ -165,39 +169,39 @@
                     <div class="card-header">
                         <div class="bay-id-text">${escapeHTML(rec.bayID)}</div>
                         <div class="staff-name-text">Logged by: ${escapeHTML(rec.staffName)}</div>
-                        <span class="risk-badge ${escapeHTML(rec.status.label)}">${escapeHTML(rec.status.level)}</span>
+                        <span class="risk-badge ${rec.status.label}">${rec.status.level}</span>
                     </div>
 
                 <div class="bay-stats">
                     <div class="stat-item">
                         <span>Soil pH</span>
-                         ${escapeHTML(rec.ph)}
+                         ${rec.ph}
                     </div>
 
                     <div class="stat-item">
                         <span>Electrical Conductivity (mS/cm)</span>
-                        ${escapeHTML(rec.conductivity)}
+                        ${rec.conductivity}
                     </div>
 
                     <div class="stat-item">
                         <span>Air Temperature (&deg;F)</span>
-                        ${escapeHTML(rec.airTemp)}
+                        ${rec.airTemp}
                     </div>
 
                     <div class="stat-item">
                         <span>Relative Humidity (%)</span>
-                        ${escapeHTML(rec.humidity)}
+                        ${rec.humidity}
                     </div>
                 </div>
 
-                <button data-id="${escapeHTML(rec.id)}" class="btn btn-outline-danger btn-sm btn-discharge">Delete Record</button>
+                <button data-id="${rec.id}" class="btn btn-outline-danger btn-sm btn-discharge">Delete Record</button>
             </div>`;
 
             fragment.appendChild(li);
         });
 
-        recordsList.innerHTML = "";
-        recordsList.appendChild(fragment);
+        cardsList.innerHTML = "";
+        cardsList.appendChild(fragment);
     }
 
     // Dynamically show error message

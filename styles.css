@@ -301,17 +301,17 @@ html {
 }
 
 .risk-badge.critical {
-    background: var(--danger);
+    background-color: var(--danger);
     color: #fff;
 }
 
-.risk-badge.elevated {
-    background: var(--warning);
+.risk-badge.warning {
+    background-color: var(--warning);
     color: #000;
 }
 
-.risk-badge.normal {
-    background: var(--safe);
+.risk-badge.optimal {
+    background-color: var(--safe);
     color: #fff;
 }
 
